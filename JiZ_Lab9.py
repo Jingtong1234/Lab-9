@@ -1,4 +1,6 @@
 
+# Hello
+
 def encode(password):
     emptystring = ""
     for i in password:
