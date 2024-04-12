@@ -16,6 +16,24 @@ def encode(password):
             emptystring = emptystring + str(i)
     return emptystring
 
+
+def decode(encoded_password):
+    decoded_password = ""
+    for digit in encoded_password:
+        digit = int(digit)
+        if digit == 0:
+            digit = 7
+        elif digit == 1:
+            digit = 8
+        elif digit == 2:
+            digit = 9
+        else:
+            digit -= 3
+        decoded_password += str(digit)
+    return decoded_password
+
+
+
 def main():
     program_run = True
     while program_run:
@@ -27,12 +45,12 @@ def main():
         userinput = input("Please enter an option: ")
         if userinput == "1":
             password = str(input("Please enter your password to encode: "))
-            # print(encode(password))
+            encoded_password = encode(password)
             print("Your password has been encoded and stored!")
 
         elif userinput == '2':
-            decode_pass == decode(password)
-            print("The encoded password is and the original password is")
+            decoded_password = decode(encoded_password)
+            print(f"The encoded password is {encoded_password} and the original password is {decoded_password}")
 
         elif userinput == '3':
             program_run = False
